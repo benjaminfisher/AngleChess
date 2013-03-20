@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	- var matrix = [[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],[[],[],[],[],[],[],[],[]],]
+	#board
+		- each row, r in matrix
+			rowname = "row-" + (r + 1)
+			ul(class=rowname)
+				- each col, c in row
+					cols = ["A","B","C","D","E","F","G","H"]
+					colname = "col-" + cols[c]
+					li(class=colname)
+						lable = ''
+						- if(c === 0 && r ===7)
+							lable = cols[c] + (r + 1)
+							span.lable= lable
+						else if c === 0
+							lable = (r + 1)
+							span.lable= lable
+						else if r === 7
+							lable = (cols[c])
+							span.lable= lable
+	#dash Dash board
+
+
+	script(src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js")

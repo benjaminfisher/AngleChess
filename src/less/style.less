@@ -1,0 +1,47 @@
+//style.less
+
+@import "_reset";
+@board-size: 800;
+
+body{
+	background-color: maroon;
+	font-family: helvetica, arial, sans-serif;
+
+	#board {
+		background-color: black;
+		border: 2px outset green;
+		float: left;
+		height: unit(@board-size, px);
+		margin: 1em;
+		width: unit(@board-size, px);
+
+		ul{
+			overflow: auto;
+
+			&:nth-child(even) li:nth-child(even),
+			&:nth-child(odd) li:nth-child(odd){
+				background-color: white;
+			}
+
+			li{
+				list-style-type: none;
+				float: left;
+				height: unit((@board-size / 8), px);
+				position: relative;
+				width: unit((@board-size / 8), px);
+
+				span.lable{
+					color: grey;
+					display: block;
+					position: absolute;
+					bottom: 2px;
+					left:2px;
+				}
+			}
+		}
+	} // End #board styles
+
+	.gt-1024 #dash{
+		float: right;
+	}
+}
